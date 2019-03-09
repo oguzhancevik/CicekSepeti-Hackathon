@@ -2,7 +2,7 @@ package com.ciceksepeti.hackathon.pojo;
 
 import java.util.List;
 
-public class Dealer{
+public class Dealer {
 
 	private String name;
 	private byte minLimit;

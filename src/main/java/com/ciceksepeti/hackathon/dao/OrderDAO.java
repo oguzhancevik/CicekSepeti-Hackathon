@@ -10,7 +10,7 @@ public class OrderDAO {
 	public List<Order> loadOrders() {
 		List<Order> orders = new ArrayList<>();
 
-		// sipariş bilgileri (id,enlem,boylam) tanımlanıyor.
+		// siparis bilgileri (id,enlem,boylam) tanimlaniyor.
 		{
 			orders.add(new Order((short) 100, 41.078260000000, 29.015770000000));
 			orders.add(new Order((short) 101, 41.060780000000, 29.010830000000));

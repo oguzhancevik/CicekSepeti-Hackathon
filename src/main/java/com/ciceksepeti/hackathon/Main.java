@@ -16,7 +16,7 @@ public class Main {
 
 	private static Dealer dealerRed, dealerGreen, dealerBlue;
 	private static List<Order> orders;
-	private static DistanceHelper distanceController;
+	private static DistanceHelper distanceHelper;
 
 	public static void fillDealerInfo() {
 		dealerRed = new Dealer("Kirmizi");
@@ -49,16 +49,16 @@ public class Main {
 
 	public static void calculateDealerDistanceByOrder() {
 		double distanceFromDealerRed, distanceFromDealerGreen, distanceFromDealerBlue;
-		distanceController = new DistanceHelper();
+		distanceHelper = new DistanceHelper();
 
 		for (Order order : orders) {
-			distanceFromDealerRed = distanceController.calculateDistance(dealerRed.getLatitude(),
-					dealerRed.getLongitude(), order.getLatitude(), order.getLongitude());
+			distanceFromDealerRed = distanceHelper.calculateDistance(dealerRed.getLatitude(), dealerRed.getLongitude(),
+					order.getLatitude(), order.getLongitude());
 
-			distanceFromDealerGreen = distanceController.calculateDistance(dealerGreen.getLatitude(),
+			distanceFromDealerGreen = distanceHelper.calculateDistance(dealerGreen.getLatitude(),
 					dealerGreen.getLongitude(), order.getLatitude(), order.getLongitude());
 
-			distanceFromDealerBlue = distanceController.calculateDistance(dealerBlue.getLatitude(),
+			distanceFromDealerBlue = distanceHelper.calculateDistance(dealerBlue.getLatitude(),
 					dealerBlue.getLongitude(), order.getLatitude(), order.getLongitude());
 
 			HashMap<Dealer, Double> unsortedDistances = new HashMap<>();
@@ -66,7 +66,7 @@ public class Main {
 			unsortedDistances.put(dealerGreen, distanceFromDealerGreen);
 			unsortedDistances.put(dealerBlue, distanceFromDealerBlue);
 
-			// mesafeleri kücükten buyuge gore sirala
+			// mesafeleri kucukten buyuge gore sirala
 			HashMap<Dealer, Double> sortedDistances = new HashMap<>();
 			SortHelper sortHelper = new SortHelper();
 			sortedDistances = sortHelper.sortHashMap(unsortedDistances, "ASC");
