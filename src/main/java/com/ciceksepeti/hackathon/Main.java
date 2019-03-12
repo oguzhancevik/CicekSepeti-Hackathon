@@ -18,7 +18,7 @@ public class Main {
 	private static List<Order> orders;
 	private static DistanceHelper distanceHelper;
 
-	public static void fillDealerInfo() {
+	public void fillDealerInfo() {
 		dealerRed = new Dealer("Kirmizi");
 		dealerRed.setMinLimit((byte) 20);
 		dealerRed.setMaxLimit((byte) 30);
@@ -41,13 +41,13 @@ public class Main {
 		dealerBlue.setOrders(new ArrayList<>());
 	}
 
-	public static void loadOrders() {
+	public void loadOrders() {
 		OrderDAO orderDAO = new OrderDAO();
 		orders = new ArrayList<>();
 		orders = orderDAO.loadOrders();
 	}
 
-	public static void calculateDealerDistanceByOrder() {
+	public void calculateDealerDistanceByOrder() {
 		double distanceFromDealerRed, distanceFromDealerGreen, distanceFromDealerBlue;
 		distanceHelper = new DistanceHelper();
 
@@ -79,7 +79,7 @@ public class Main {
 
 	}
 
-	public static Order deliverOrderByNearestDealer(Order order, HashMap<Dealer, Double> distances) {
+	public Order deliverOrderByNearestDealer(Order order, HashMap<Dealer, Double> distances) {
 
 		for (Object distance : distances.entrySet()) {
 			Map.Entry<Dealer, Double> entry = (Map.Entry) distance;
@@ -105,9 +105,10 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		fillDealerInfo();
-		loadOrders();
-		calculateDealerDistanceByOrder();
+		Main main = new Main();
+		main.fillDealerInfo();
+		main.loadOrders();
+		main.calculateDealerDistanceByOrder();
 
 		PrintHelper.printDealerOrderSize(dealerRed);
 		PrintHelper.printDealerOrderSize(dealerGreen);
