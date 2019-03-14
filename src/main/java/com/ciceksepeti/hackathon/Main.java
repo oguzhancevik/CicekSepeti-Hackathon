@@ -14,9 +14,9 @@ import com.ciceksepeti.hackathon.pojo.Order;
 
 public class Main {
 
-	private static Dealer dealerRed, dealerGreen, dealerBlue;
-	private static List<Order> orders;
-	private static DistanceHelper distanceHelper;
+	private Dealer dealerRed, dealerGreen, dealerBlue;
+	private List<Order> orders;
+	private DistanceHelper distanceHelper;
 
 	public void fillDealerInfo() {
 		dealerRed = new Dealer("Kirmizi");
@@ -110,9 +110,9 @@ public class Main {
 		main.loadOrders();
 		main.calculateDealerDistanceByOrder();
 
-		PrintHelper.printDealerOrderSize(dealerRed);
-		PrintHelper.printDealerOrderSize(dealerGreen);
-		PrintHelper.printDealerOrderSize(dealerBlue);
+		PrintHelper.printDealerOrderSize(main.dealerRed);
+		PrintHelper.printDealerOrderSize(main.dealerGreen);
+		PrintHelper.printDealerOrderSize(main.dealerBlue);
 
 	}
 
