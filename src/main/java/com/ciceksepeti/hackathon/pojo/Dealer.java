@@ -14,7 +14,7 @@ public class Dealer extends Location {
 
 	public Dealer(String name) {
 		super();
-		this.name = name;
+		setName(name);
 	}
 
 	public String getName() {
