@@ -2,13 +2,11 @@ package com.ciceksepeti.hackathon.pojo;
 
 import java.util.List;
 
-public class Dealer {
+public class Dealer extends Location {
 
 	private String name;
 	private byte minLimit;
 	private byte maxLimit;
-	private double latitude;
-	private double longitude;
 	private List<Order> orders;
 
 	public Dealer() {
@@ -41,22 +39,6 @@ public class Dealer {
 
 	public void setMaxLimit(byte maxLimit) {
 		this.maxLimit = maxLimit;
-	}
-
-	public double getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
-
-	public double getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
 	}
 
 	public List<Order> getOrders() {

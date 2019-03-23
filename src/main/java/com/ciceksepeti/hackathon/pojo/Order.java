@@ -1,10 +1,8 @@
 package com.ciceksepeti.hackathon.pojo;
 
-public class Order {
+public class Order extends Location {
 
 	private short id;
-	private double latitude;
-	private double longitude;
 	private Dealer dealer;
 
 	public Order() {
@@ -12,9 +10,9 @@ public class Order {
 
 	public Order(short id, double latitude, double longitude) {
 		super();
-		this.id = id;
-		this.latitude = latitude;
-		this.longitude = longitude;
+		setId(id);
+		this.setLongitude(longitude);
+		this.setLatitude(latitude);
 	}
 
 	public short getId() {
@@ -23,22 +21,6 @@ public class Order {
 
 	public void setId(short id) {
 		this.id = id;
-	}
-
-	public double getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
-
-	public double getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
 	}
 
 	public Dealer getDealer() {
