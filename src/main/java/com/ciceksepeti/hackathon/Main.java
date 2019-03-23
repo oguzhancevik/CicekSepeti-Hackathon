@@ -18,6 +18,18 @@ public class Main {
 	private List<Order> orders;
 	private DistanceHelper distanceHelper;
 
+	public static void main(String[] args) {
+		Main main = new Main();
+		main.fillDealerInfo();
+		main.loadOrders();
+		main.calculateDealerDistanceByOrder();
+
+		PrintHelper.printDealerOrderSize(main.dealerRed);
+		PrintHelper.printDealerOrderSize(main.dealerGreen);
+		PrintHelper.printDealerOrderSize(main.dealerBlue);
+
+	}
+
 	public void fillDealerInfo() {
 		dealerRed = new Dealer("Kirmizi");
 		dealerRed.setMinLimit((byte) 20);
@@ -102,18 +114,6 @@ public class Main {
 		}
 
 		return order;
-	}
-
-	public static void main(String[] args) {
-		Main main = new Main();
-		main.fillDealerInfo();
-		main.loadOrders();
-		main.calculateDealerDistanceByOrder();
-
-		PrintHelper.printDealerOrderSize(main.dealerRed);
-		PrintHelper.printDealerOrderSize(main.dealerGreen);
-		PrintHelper.printDealerOrderSize(main.dealerBlue);
-
 	}
 
 }
